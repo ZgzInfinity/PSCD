@@ -1,0 +1,96 @@
+NIP		Apellidos		Nombre
+
+_______________________________________________________
+
+
+737215		Rodríguez Esteban	Rubén	
+
+
+
+
+
+Dificultades encontradas a la hora de hacer la práctica
+
+  	
+
+	Personalmente he tenido bastantes dificultades en el segundo ejercicio para comprender
+  	
+	el funcionamiento de las instrucciones test_and_set(). 
+  	
+	Otra de las dificultades encontradas ha sido poder dividir correctamente la matriz y 
+  	
+	asegurarme de cada proceso ejecutaba la suma en la submatriz correspondiente ya que al
+  	
+	principio tuve bastantes complicaciones porque los procesos no me terminaban o directamente
+  	
+	se bloqueaban y nunca finalizaban etcetera.
+  	
+	También he tenido problemas a la hora de decidir si el proceso informador lo debía lanzar
+  
+	al principio junto con el resto de los procesos o al final después de haber recibido la 
+  	
+	confirmación de que todos ellos han acabado.
+  
+
+
+
+
+Diferencias de funcionamiento entre ambos ejercicios de la práctica
+
+ 	
+
+    Ha continuación explico cuáles son las principales distinciones en cuánto al funcionamiento de los ejercicios:
+
+		
+
+		- Ejercicio_1.cpp: la media de la matriz se calcula a través de dieciseis procesos que calculan parcialmente la
+				   
+		  suma de los coeficientes de una parte concreta de dicha mattriz. Cuando dichos procesos finalizan
+
+		  su tarea, un proceso informador es ejecutado para proceder a calcular la media y posteriormente 
+		  mostrarla por pantalla.
+		
+		- Ejercicio_2.cpp: la media de la matriz se calcula por medio de dos variables, una que lleva la cuenta de los 
+	
+		  procesos que han acabado de realizar su tarea y otra que almacena la suma total de los componentes,
+	
+		  que se modifica cada vez que un proceso suma una porción de la matriz. La diferencia principal con respecto
+	
+		  al ejercicio anterior, es que último proceso en terminar, es el que calcula la media de la matriz y 
+
+		  posteriormente lo muestra por pantalla. Por consiguiente, no hace falta un vector de sumas parciales ni tampoco
+				   
+		  un proceso informador por lo que es más efectivo el segundo diseño que el primero.
+				 
+
+
+
+
+Comandos a seguir para asegurar la ejecución correcta de los programas
+
+	
+
+		- Una vez iniciada la sesión en hendrix, se debe entrar en el directorio 
+	  
+		  donde se encuentran los ficheros fuente. Para ello, se debe entrar el 
+	  
+		  directorio donde se halla guardado la carepeta practica1_737215 y ejecutar 
+	  
+		  el siguiente comando: cd practica2_737215.
+	
+	
+		- Para la compilación de los ejercicios se debe ejecutar los siguientes comandos
+:    
+			 - Ejercicio_1.cpp: g++ -std=c++11 -pthread ejercicio_1.cpp -o ejercicio_1.
+	     
+			 - Ejercicio_2.cpp: g++ -std=c++11 -pthread ejercicio_2.cpp -o ejercicio_2.
+       
+	 	- Ejecutar los programas:
+  	     
+			 - ./ejercicio_1
+	     
+			 - ./ejercicio_2
+	   
+				   
+
+

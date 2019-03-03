@@ -1,0 +1,142 @@
+
+NIP		Apellidos		Nombre
+_________________________________________________
+
+737215	        Rodríguez Esteban	Rubén
+
+
+Dificultades obtenidas a la hora de realizar la practica:
+
+   	- Falta de conocimiento en cuánto a determinadas instrucciones
+ 	  de C++ tales como: this thread::sleep for(...),
+	  chrono::milliseconds(...) o join().
+	- En el ejercicio 1 a la hora de familirarizarme con el ámbito 
+	  de los threads y su síntaxis en C++.
+	- Poder compilar los programas en el entorno de Codelite
+	- En el ejercicio 4, concretamente no en la implementación
+	  y especificación de los distintos threads, sino a la hora de
+	  sincronizarlos para evitar errores. He tenido que emplear 
+	  variables globales y no es un método que me guste ponerlo en
+	  práctica puesto que es necesario mantener un control absoluto
+	  de sus valores. Por lo que, a veces, en vez de facilitar el 
+	  código pueden dificultarlo.
+
+
+
+----------------------------------------------------------------------------------------------
+
+
+
+
+Explicación detallada del comportamiento de las tres versiones del ejercicio 1 
+
+  * Primera aproximación
+
+     Explicación del código
+
+	- En este programa se lanzan tres procesos distintos: th_1,
+	  th_2 y th_3 que escriben en pantalla los mensajes " Soy A",
+	  " Soy B " y " Soy C " seguido de un salto de línea tantas 
+	  veces como indica la variable entera [veces] con tiempo 
+	  de pausa en milisegundos entre cada una de ellas indicado 
+	  por la variable entera [retardo]. 
+	  El programa muestra por pantalla el mensaje " Fin " una vez
+	  terminada la ejecución de todos los threads
+
+     Matices de implementación
+
+	- Este código muestra un programa que trabaja con threads cuya
+	  implementación es muy básica y simple e indeficiente puesto 
+	  que todos los threads realizan prácticamente la misma función
+	  a excepción de pequeños matices. Por consiguiente es preferible
+	  buscar una implementación lo más genérica posible y así evitar
+	  la repetición de código.
+
+
+
+
+   * Segunda aproximacion
+       
+       Explicación del código
+
+	- Esta segunda aproximación trata los matices de implementación
+	  comentados en el primer ejercicio ya que en esta versión se  
+	  crea un vector de threads llamado P dado que al relaizar la
+	  misma función es más conveniente que definirlos por separado, 
+	  El vector P tiene de dimensión 3, cuyas componentes son P[0], 
+	  P[1] y P[2]: los threads en cuestión.
+	  La finalidad de este programa es la misma que la primera
+	  aproximación por lo que no es neceario hacer más énfasis en este
+	  aspecto.
+
+      Matices de implementación
+
+	- Para mejorar esta aproximación es más eficiente que el código de la
+	  primera versión, pero podría optimizarse aún más puesto que aunque 
+	  en este caso se utilice un vector de threads, éstos últimos siguen 
+	  declarándose por separado, por ello, si en lanzaran un número de 
+	  procesos lo suficientemente grande, la declaración de cada thread 
+	  resulta muy latosa, por lo que a la larga este programa también
+	  es ineficiente.
+
+
+    
+   * Tercera aproximación
+
+       Explicación del código
+
+	- Las dos aproximaciones anteriores son muy claras cuando el comportamiento
+	  de los procesos puede ser encapsulado en una única función. Sin embago, no
+	  son claros si los procesos tienen unas pautas de comportamiento más
+	  complejas. Es por esta razón, que en esta tercera y última aproximación se 
+	  encapsula en una clase concreta el comportamiento de dicho proceso e
+	  implementar tantos objetos de la clase como sean necesarios. Así las cosas,
+	  esta aproximación es la más compleja en cuánto a implementación del código.
+	  El comportamiento del programa es el mismo que las dos aproximaciones 
+	  anteriores, pero con grandes modificaciones en el diseño puesto que ahora
+	  ya no se declaran los threads por separado sino que se ha declarado una clase
+	  con dos funciones:
+ 
+		- Saludador(): A partir de un conjunto de variables iniciales 
+			       construye un objeto de la clase saludador.
+		- Run(): muestra [veces] veces por pantalla el objeto de la clase
+		  	 saludador construído con un intervalo de pausa entre muestreo y 
+			 muestreo de [retardo] milisegundos.
+
+       Matices de la implementación
+
+	- La optimización máxima de esta aproximación consistiría en utilizar la 
+	  construcción de clases orientada a objetos combinada con el uso de 
+	  la técnicas de la programación modular. 
+
+
+
+
+ ----------------------------------------------------------------------------------------------
+
+
+
+
+Para poder compilar los ficheros fuente de los ejercicios 2,3 y 4 de esta práctica se deben
+seguir las siguentes instrucciones:
+
+	- Una vez iniciada la sesión en hendrix, se debe entrar en el directorio 
+	  donde se encuentran los ficheros fuente. Para ello, se debe entrar el 
+	  directorio donde se halla guardado la carepeta practica1_737215 y ejecutar 
+	  el siguiente comando: cd practica1_737215.
+	- Se ejecuta después el comando ls -l para observar que los ficheros fuente
+	  ejercicio_2.cpp, ejercicio_3.cpp y ejercicio_4.cpp se encuentran en dicha 
+	  ubicación para afianzar que todo está en orden.
+	- Para la compilación de los ejercicios se debe ejecutar los siguientes comandos
+	     - Ejercicio_2.cpp: g++ -std=c++11 -pthread ejercicio_2.cpp -o ejercicio_2.
+	     - Ejercicio_3.cpp: g++ -std=c++11 -pthread ejercicio_3.cpp saludador.cpp saludador.h -o ejercicio_3
+	     - Ejercicio_4.cpp: g++ -std=c++11 -pthread ejercicio_4.cpp -o ejercicio_4.
+        - Ejecutar los programas:
+	     - ./ejercicio_2
+	     - ./ejercicio_3
+	     - ./ejercicio_4
+
+	
+
+		
+ 
